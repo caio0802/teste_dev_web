@@ -15,11 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import re_path
+from django.conf.urls import include, url
+from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 from core import views as views_core
 from catalog import views as views_cat
 
 urlpatterns = [
+	url(r'^', include('home.urls')),
+    	url(r'^account/', include('social_django.urls', namespace='social')),
+    	url(r'^account/', include('django.contrib.auth.urls', namespace='auth')),
+    	url(r'^admin/', include(admin.site.urls)),
+	
 	re_path(r'^$', views_core.inicial, name='inicial'),
 
 	re_path(r'^home/$', views_core.index, name='home'),
