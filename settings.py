@@ -142,3 +142,6 @@ try:
 	from .local_settings import *
 except ImportError:
 	pass
+
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY =''  #Paste CLient Key
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '' #Paste Secret Key
